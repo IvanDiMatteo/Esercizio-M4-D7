@@ -31,7 +31,7 @@ function showPost(element) {
       <h5 class="card-title">${element.name}</h5>
       <p class="card-text short-descr">${element.description}</p>
       <div class="d-flex justify-content-around">
-      <a href="#" onclick="addToCart('${element.name}', '${element.price}')" class="btn btn-primary"><i class="fa-solid fa-cart-plus"></i> €${element.price.toFixed(2)}</a>
+      <a href="#" onclick="addToCart('${element.name}', '${element.price}')" class="btn btn-primary"><i class="fa-solid fa-cart-plus"></i> €${element.price}</a>
       <a href="#" class="btn btn-secondary">Details</a>
       </div>
     </div>`;

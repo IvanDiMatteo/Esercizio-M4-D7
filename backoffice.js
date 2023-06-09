@@ -51,7 +51,7 @@ function showPost(element) {
         <td><div style="min-width: 100px; max-width: 150px;" class="input-group mb-3">
         <input data-price-id="${element._id}" type="number" class="form-control" placeholder="Update Price" aria-label="Recipient's username" aria-describedby="button-addon2">
         <button data-price-id="${element._id}" class="btn btn-primary" type="button" id="button-addon2"><i class="fa-solid fa-pencil"></i></button>
-        </div>€${element.price.toFixed(2)}</td>
+        </div>€${element.price}</td>
 
         <td><button data-delete-id="${element._id}" class="btn btn-danger" type="button" id="button-addon2">X</button></td>
     `;
