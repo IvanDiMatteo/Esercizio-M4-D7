@@ -1,0 +1,161 @@
+@import url('https://fonts.googleapis.com/css2?family=Raleway:wght@300;600&display=swap');
+
+* {
+    font-family: 'Raleway', sans-serif;
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+h1, h5 {
+    white-space: nowrap;
+    font-weight: 600 !important;
+}
+
+body {
+    background: linear-gradient(90deg, rgba(125,27,208,1) 0%, rgba(50,35,203,1) 100%);
+}
+
+nav {
+    box-shadow: 0 4px 7px -2px rgb(19, 19, 19);
+}
+
+.btn-primary, .btn-secondary, .btn-danger {
+    -webkit-box-shadow: 2px 2px 8px 2px #000000; 
+}
+
+.titolo-principale {
+    margin-bottom: 0;
+    color: white;
+    text-shadow: 0 0 5px #FFF, 0 0 20px #18d5ff, 0 0 30px #18d5ff !important;
+}
+
+#addKeyContainer {
+    padding: 0 !important;
+    border: 0px !important;
+}
+
+.post-cards {
+    color: white !important;
+    -webkit-box-shadow: 5px 5px 15px 5px #290066; 
+    background-color: rgb(89, 34, 255) !important;
+    padding: 0 !important;
+    height: 350px !important;
+    width: 300px !important;
+}
+
+.post-cards:hover {
+    transform: scale(1.1);
+    transition: transform 0.3s ease-in-out;
+    z-index: 5;
+}
+
+.card-img-top {
+    object-fit: cover !important;
+    width: 200px;
+    height: 200px;
+}
+
+#detailBody {
+    height: 90vh;
+}
+
+#detCard {
+    -webkit-box-shadow: 5px 5px 15px 5px #290066;
+    overflow: hidden !important;
+    border: 1px solid rgb(54, 54, 54);
+    border-radius: 20px;
+    height: 70% !important;
+    width: 80% !important;
+    max-width: 850px;
+}
+
+#cardTop {
+    position: relative;
+    border-bottom: 1px solid rgb(54, 54, 54);
+    overflow: hidden !important;
+    height: 60%;
+}
+
+#cardBot {  
+    background-color: rgb(89, 34, 255) !important;
+    height: 40%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+#cardText {
+    border-top: 1px solid rgb(54, 54, 54);
+    border-bottom: 1px solid rgb(54, 54, 54);
+    height: 70%;
+    overflow-y: auto;
+}
+
+#detImg {
+    height: 100%;
+    width: 100%;
+    object-fit: cover !important;
+}
+
+.collapse-div {
+    margin-top: -12px !important;
+    padding: 5px !important;
+}
+
+.edit-btn {
+    border-radius: 4px !important;
+    padding: 0px 6px !important;
+}
+
+.fa-pencil {
+    font-size: 10pt;
+}
+
+.edit-form {
+    width: 100px !important;
+}
+
+.short-descr {
+    max-width: 350px;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+
+/* cart */
+
+#listaCarrello {
+    list-style-type: none;
+}
+
+.cart-del-btn {
+    box-shadow: 0 0 0 0 #290066 !important;
+}
+
+#listaCarrello > li {
+    box-shadow: 0 4px 7px -2px rgb(19, 19, 19);
+}
+
+.btn-close {
+    color: white !important;
+}
+
+.offcanvas {
+    box-shadow: 0 4px 7px -2px rgb(19, 19, 19);
+    color: white !important;
+    background: linear-gradient(180deg, rgba(125,27,208,1) 0%, rgba(50,35,203,1) 100%);
+}
+
+.offcanvas-header {
+    box-shadow: 0 4px 7px -2px rgb(19, 19, 19);
+}
+
+.exit-animation {
+    -webkit-animation: fadeout .3s;
+}
+
+@-webkit-keyframes fadeout {
+    from {opacity: 1;}
+    to {opacity: 0;}
+}

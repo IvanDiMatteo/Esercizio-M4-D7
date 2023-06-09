@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
+    <script src="https://kit.fontawesome.com/599f069921.js" crossorigin="anonymous"></script>
+    <title>keyShop - Backoffice</title>
+    <link rel="icon" type="image/x-icon" href="favicon/favicon.png">
+</head>
+<body>
+
+    <nav class="mt-2 ps-2 pe-2 pb-2 d-flex justify-content-between">
+        <button id="homeBtn" class="btn btn-primary" type="button"><i class="fa-solid fa-house"></i></button>
+        <h1 class="text-center titolo-principale">-Backoffice-</h1>
+        <button id="uploadKeyBtn" type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+        Upload a Game Key
+    </button>
+    </nav>
+    
+    
+  
+    
+    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true" data-bs-theme="dark">
+        <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+            <h1 class="modal-title fs-5 text-light" id="exampleModalLabel">Upload a Game Key</h1>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                
+                <div class="card card-body" id="addKeyContainer">
+                    <div class="create-box">
+                        <div class="">
+                            <div class="my-2">
+                                <input class="form-control form-control-sm" type="text" placeholder="Game Name" id="name-field" aria-label=".form-control-sm example">
+                            </div>
+                            <div class="my-2">
+                                <input class="form-control form-control-sm" type="text" placeholder="Game Description" id="desc-field" aria-label=".form-control-sm example">
+                            </div>
+                            <div class="my-2">
+                                <input class="form-control form-control-sm" type="text" step="0.01" placeholder="Game Key" id="brand-field" aria-label=".form-control-sm example">
+                            </div>
+                            <div class="my-2">
+                                <input class="form-control form-control-sm" type="text" step="0.01" placeholder="Game Cover" id="img-field" aria-label=".form-control-sm example">
+                            </div>
+                            <div class="my-2">
+                                <input class="form-control form-control-sm" type="number" step="0.01" placeholder="Game Price" id="price-field" aria-label=".form-control-sm example">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+            <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+            <button id="create-btn" onclick="addPost()" type="button" class="btn btn-primary">
+                <i class="fa-solid fa-plus me-1"></i>
+                <span>Upload key</span>
+            </button>
+            </div>
+        </div>
+        </div>
+    </div>
+
+    <table class="table table-dark table-striped">
+        <thead class="bg-primary text-light">
+            <tr>
+              <th scope="col">Name</th>
+              <th scope="col">Description</th>
+              <th scope="col">Key</th>
+              <th scope="col">Cover Image</th>
+              <th scope="col">Price</th>   
+              <th scope="col">Delete</th>        
+            </tr>
+        </thead>
+        <tbody id="results-box">
+            
+        </tbody>
+    </table>
+    
+
+
+
+
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz" crossorigin="anonymous"></script>
+    <script src="backoffice.js"></script>
+</body>
+</html>
