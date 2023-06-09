@@ -13,7 +13,11 @@ body {
 }
 
 nav {
+    z-index: 10;
+    position: sticky;
+    top: 0;
     box-shadow: 0 4px 7px -2px rgb(19, 19, 19);
+    background: linear-gradient(90deg, rgba(125,27,208,1) 0%, rgba(50,35,203,1) 100%);
 }
 
 h1, h5 {
@@ -65,6 +69,59 @@ h1, h5 {
     transition: border-width .6s linear;
 }
 
+/* Carrello */
+#listaCarrello {
+    list-style-type: none;
+}
+
+.cart-del-btn {
+    box-shadow: 0 0 0 0 #290066 !important;
+}
+
+#listaCarrello > li {
+    box-shadow: 0 4px 7px -2px rgb(19, 19, 19);
+}
+
+.btn-close {
+    color: white !important;
+}
+
+.offcanvas {
+    box-shadow: 0 4px 7px -2px rgb(19, 19, 19);
+    color: white !important;
+    background: linear-gradient(180deg, rgba(125,27,208,1) 0%, rgba(50,35,203,1) 100%);
+}
+
+.offcanvas-header {
+    box-shadow: 0 4px 7px -2px rgb(19, 19, 19);
+}
+
+.exit-animation {
+    -webkit-animation: fadeout .3s;
+}
+
+@-webkit-keyframes fadeout {
+    from {opacity: 1;}
+    to {opacity: 0;}
+}
+
+/* Backoffice */
+.fa-pencil {
+    font-size: 10pt;
+}
+
+.animation-shacking {
+    animation: horizontal-shaking .35s .1s;
+}
+
+@-webkit-keyframes horizontal-shaking {
+    0% { transform: translateX(0) }
+    25% { transform: translateX(5px) }
+    50% { transform: translateX(-5px) }
+    75% { transform: translateX(5px) }
+    100% { transform: translateX(0) }
+}
+
 /* Cards pagina dettagli */
 #detailBody {
     height: 90vh;
@@ -108,63 +165,7 @@ h1, h5 {
     object-fit: cover !important;
 }
 
-/* Backoffice */
-
-.fa-pencil {
-    font-size: 10pt;
-}
-
-.animation-shacking {
-    animation: horizontal-shaking .35s .1s;
-}
-
-@-webkit-keyframes horizontal-shaking {
-    0% { transform: translateX(0) }
-    25% { transform: translateX(5px) }
-    50% { transform: translateX(-5px) }
-    75% { transform: translateX(5px) }
-    100% { transform: translateX(0) }
-}
-
-/* Carrello */
-
-#listaCarrello {
-    list-style-type: none;
-}
-
-.cart-del-btn {
-    box-shadow: 0 0 0 0 #290066 !important;
-}
-
-#listaCarrello > li {
-    box-shadow: 0 4px 7px -2px rgb(19, 19, 19);
-}
-
-.btn-close {
-    color: white !important;
-}
-
-.offcanvas {
-    box-shadow: 0 4px 7px -2px rgb(19, 19, 19);
-    color: white !important;
-    background: linear-gradient(180deg, rgba(125,27,208,1) 0%, rgba(50,35,203,1) 100%);
-}
-
-.offcanvas-header {
-    box-shadow: 0 4px 7px -2px rgb(19, 19, 19);
-}
-
-.exit-animation {
-    -webkit-animation: fadeout .3s;
-}
-
-@-webkit-keyframes fadeout {
-    from {opacity: 1;}
-    to {opacity: 0;}
-}
-
 /* Footer */
-
 footer {
     box-shadow: 0px 4px 5px rgb(19, 19, 19), 0px -4px 7px -2px rgb(19, 19, 19);
 }

@@ -21,6 +21,7 @@ async function getPost() {
     });
     const json = await res.json();
     console.table(json);
+    // Mostra un counter di quanti elementi sono presenti nel database all'interno del button
     uploadKeyBtn.innerText = "Upload a Game Key (" + json.length + " keys now)";
     json.forEach(element => {
         showPost(element);
@@ -139,6 +140,7 @@ async function addPost() {
       "imageUrl": imgField.value,
       "price": priceField.value
     };
+
     const createResult = await fetch(apiCall, {
         method: "POST",
         body: JSON.stringify(payload),
@@ -147,6 +149,7 @@ async function addPost() {
           "Content-Type": "application/json"
         }
     });
+
     } catch (error) {
       console.log(error);
     }
@@ -160,6 +163,7 @@ async function addPost() {
     priceField.value = "";
 
   } else {
+    // Brevi animazioni che mostrano un alert in caso uno o più campi siano vuoti
     alertWarn[0].classList.add("animation-shacking");
     alertWarn[0].classList.toggle("d-none");
     setTimeout(() => {

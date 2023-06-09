@@ -71,9 +71,8 @@ function addToCart(name, price, event) {
 
     const card = document.querySelector(`[data-name="${name}"]`);
 
-    if (card) {
-        card.classList.add("highlight-card");
-    }
+    // Aggiunge per pochi secondi un bordo colorato alla card quando si preme il button
+    card.classList.add("highlight-card");
 
     setTimeout(() => {
         if (card) {
