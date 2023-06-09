@@ -6,8 +6,9 @@ const ulCart = document.getElementById("listaCarrello");
 const h5Totale = document.getElementById("h5Totale");
 const backOfficeBtn = document.getElementById("backOfficeBtn");
 
-const totCarrello = [];
+const totCarrello = [];// Array di stoccaggio per calcolare il totale del carrello
 
+// Chiamata AJAX per recuperare gli elementi
 async function getPost() {
     myContainer.innerHTML = "";
     const res = await fetch(apiCall, {
@@ -20,7 +21,8 @@ async function getPost() {
         showPost(element);
     });
 }
-  
+
+// Funzione che permette di visualizzare le varie keys
 function showPost(element) {
     const myCard = document.createElement("div");
 
@@ -47,6 +49,7 @@ function showPost(element) {
     myContainer.append(myCard);
 }
 
+// Funzione che permette di aggiungere keys al carrello tramite il button
 function addToCart(name, price) {
 
     let prezzo = parseFloat(price);
@@ -61,7 +64,7 @@ function addToCart(name, price) {
     calcolaPrezzoTotale();
 }
 
-
+// Funzione che permette di rimuovere keys dal carrello tramite il button
 function removeFromCart(elemento) {  
 
     let listItem = elemento.parentNode;  
@@ -70,7 +73,7 @@ function removeFromCart(elemento) {
 
     setTimeout(() => {      
         listItem.remove();
-    }, 300);  
+    }, 300);// L'elemento viene rimosso alla fine dell'animazione  
 
     let index = totCarrello.indexOf(prezzo);
     if (index > -1) {
@@ -80,18 +83,21 @@ function removeFromCart(elemento) {
     calcolaPrezzoTotale();
 };
 
+// Funzione avviata dopo l'aggiunta o la rimozione di ogni elemento dal carrello, serve a ricalcolare il totale
 function calcolaPrezzoTotale() {
     let somma = totCarrello.reduce((accumulator, currentValue) => accumulator + currentValue, 0);
 
     h5Totale.innerText = "€" + somma.toFixed(2);
 };
 
+// Funzione per aprire una nuova scheda con i dettagli del prodotto tramite il button
 function openDetailsWindow(element) {
     const detailsUrl = `./details.html?id=${encodeURIComponent(element._id)}`;
 
     window.open(detailsUrl, "_blank");
 }
 
+// Funzione per accedere al backoffice in una nuova scheda tramite il button
 backOfficeBtn.addEventListener("click", () => {
     const backofficeUrl = `./backoffice.html`;
     

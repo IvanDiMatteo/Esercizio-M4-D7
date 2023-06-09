@@ -1,15 +1,11 @@
 @import url('https://fonts.googleapis.com/css2?family=Raleway:wght@300;600&display=swap');
 
+/* Settaggi generali */
 * {
     font-family: 'Raleway', sans-serif;
     padding: 0;
     margin: 0;
     box-sizing: border-box;
-}
-
-h1, h5 {
-    white-space: nowrap;
-    font-weight: 600 !important;
 }
 
 body {
@@ -20,8 +16,9 @@ nav {
     box-shadow: 0 4px 7px -2px rgb(19, 19, 19);
 }
 
-.btn-primary, .btn-secondary, .btn-danger {
-    -webkit-box-shadow: 2px 2px 8px 2px #000000; 
+h1, h5 {
+    white-space: nowrap;
+    font-weight: 600 !important;
 }
 
 .titolo-principale {
@@ -30,11 +27,11 @@ nav {
     text-shadow: 0 0 5px #FFF, 0 0 20px #18d5ff, 0 0 30px #18d5ff !important;
 }
 
-#addKeyContainer {
-    padding: 0 !important;
-    border: 0px !important;
+.btn-primary, .btn-secondary, .btn-danger {
+    -webkit-box-shadow: 2px 2px 8px 2px #000000; 
 }
 
+/* Cards homepage */
 .post-cards {
     color: white !important;
     -webkit-box-shadow: 5px 5px 15px 5px #290066; 
@@ -56,6 +53,14 @@ nav {
     height: 200px;
 }
 
+.short-descr {
+    max-width: 350px;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+
+/* Cards pagina dettagli */
 #detailBody {
     height: 90vh;
 }
@@ -98,32 +103,11 @@ nav {
     object-fit: cover !important;
 }
 
-.collapse-div {
-    margin-top: -12px !important;
-    padding: 5px !important;
-}
-
-.edit-btn {
-    border-radius: 4px !important;
-    padding: 0px 6px !important;
-}
-
 .fa-pencil {
     font-size: 10pt;
 }
 
-.edit-form {
-    width: 100px !important;
-}
-
-.short-descr {
-    max-width: 350px;
-    overflow: hidden;
-    white-space: nowrap;
-    text-overflow: ellipsis;
-}
-
-/* cart */
+/* Carrello */
 
 #listaCarrello {
     list-style-type: none;

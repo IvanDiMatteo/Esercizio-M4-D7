@@ -9,6 +9,7 @@ const imgField = document.getElementById("img-field");
 const priceField = document.getElementById("price-field");
 const homeBtn = document.getElementById("homeBtn");
 
+// Chiamata AJAX per recuperare gli elementi
 async function getPost() {
     myTable.innerHTML = "";
     const res = await fetch(apiCall, {
@@ -22,6 +23,7 @@ async function getPost() {
     });
 }
 
+// Funzione che crea tutti gli elementi nella tabella, con la possibilità di modificarli singolarmente
 function showPost(element) {
     const myTr = document.createElement("tr");
 
@@ -119,6 +121,7 @@ function showPost(element) {
     myTable.appendChild(myTr);
 }
 
+// Funzione per aggiungere un elemento al database
 async function addPost() {
   if (nameField.value && descField.value && brandField.value && imgField.value && priceField.value) {
       const payload = {
@@ -149,6 +152,7 @@ async function addPost() {
   priceField.value = "";
 }
 
+// Funzione per aggiornare un determinato campo di un determinato elemento
 async function updatePost(postId, updatedData) {
     const updateUrl = `https://striveschool-api.herokuapp.com/api/product/${postId}`;
     
@@ -171,6 +175,7 @@ async function updatePost(postId, updatedData) {
     }, 200);
 }
 
+// Funzione per eliminare un elemento tramite il button
 async function delPost(postId) {
   const deleteUrl = `https://striveschool-api.herokuapp.com/api/product/${postId}`;
   
@@ -188,6 +193,7 @@ async function delPost(postId) {
   }, 200);
 }
 
+// Pulsante home che riporta alla pagina principale
 homeBtn.addEventListener("click", () => {
   window.location.href = "index.html";
 });

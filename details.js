@@ -10,6 +10,7 @@ const prezzo = document.getElementById("prezzo");
 const img = document.getElementById("detImg");
 const homeBtn = document.getElementById("homeBtn");
 
+// Chiamata AJAX per recuperare gli elementi ed inserirli nella card dettagli
 async function showDetails() {
   const res = await fetch(apiCall, {
       method: "GET",
@@ -26,6 +27,7 @@ async function showDetails() {
   img.setAttribute("alt", `${json.name} image`);
 }
 
+// Pulsante home che riporta alla pagina principale
 homeBtn.addEventListener("click", () => {
   window.location.href = "index.html";
 });
