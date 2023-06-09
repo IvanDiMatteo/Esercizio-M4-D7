@@ -8,9 +8,12 @@ const brandField = document.getElementById("brand-field");
 const imgField = document.getElementById("img-field");
 const priceField = document.getElementById("price-field");
 const homeBtn = document.getElementById("homeBtn");
+const uploadKeyBtn = document.getElementById("uploadKeyBtn");
+const alertWarn = document.getElementsByClassName("alert-warning");
 
 // Chiamata AJAX per recuperare gli elementi
 async function getPost() {
+  try {
     myTable.innerHTML = "";
     const res = await fetch(apiCall, {
         method: "GET",
@@ -18,9 +21,13 @@ async function getPost() {
     });
     const json = await res.json();
     console.table(json);
+    uploadKeyBtn.innerText = "Upload a Game Key (" + json.length + " keys now)";
     json.forEach(element => {
         showPost(element);
     });
+  } catch (error) {
+    console.log(error);
+  }    
 }
 
 // Funzione che crea tutti gli elementi nella tabella, con la possibilità di modificarli singolarmente
@@ -124,32 +131,41 @@ function showPost(element) {
 // Funzione per aggiungere un elemento al database
 async function addPost() {
   if (nameField.value && descField.value && brandField.value && imgField.value && priceField.value) {
+    try {
       const payload = {
       "name": nameField.value,
       "description": descField.value,
       "brand": brandField.value,
       "imageUrl": imgField.value,
       "price": priceField.value
-  };
-  const createResult = await fetch(apiCall, {
-      method: "POST",
-      body: JSON.stringify(payload),
-      headers: {
+    };
+    const createResult = await fetch(apiCall, {
+        method: "POST",
+        body: JSON.stringify(payload),
+        headers: {
           Authorization: apiToken,
           "Content-Type": "application/json"
-      }
-  });
+        }
+    });
+    } catch (error) {
+      console.log(error);
+    }
+
+    getPost();
+
+    nameField.value = "";
+    descField.value = "";
+    brandField.value = "";
+    imgField.value = "";
+    priceField.value = "";
+
   } else {
-      console.log("error");
+    alertWarn[0].classList.add("animation-shacking");
+    alertWarn[0].classList.toggle("d-none");
+    setTimeout(() => {
+      alertWarn[0].classList.toggle("d-none");
+    }, 3000);
   }
-
-  getPost();
-
-  nameField.value = "";
-  descField.value = "";
-  brandField.value = "";
-  imgField.value = "";
-  priceField.value = "";
 }
 
 // Funzione per aggiornare un determinato campo di un determinato elemento

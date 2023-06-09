@@ -28,13 +28,13 @@ h1, h5 {
 }
 
 .btn-primary, .btn-secondary, .btn-danger {
-    -webkit-box-shadow: 2px 2px 8px 2px #000000; 
+    box-shadow: 2px 2px 8px 2px #000000; 
 }
 
 /* Cards homepage */
 .post-cards {
     color: white !important;
-    -webkit-box-shadow: 5px 5px 15px 5px #290066; 
+    box-shadow: 5px 5px 15px 5px #290066; 
     background-color: rgb(89, 34, 255) !important;
     padding: 0 !important;
     height: 350px !important;
@@ -60,13 +60,18 @@ h1, h5 {
     text-overflow: ellipsis;
 }
 
+.highlight-card {
+    border: 2px solid rgb(185, 28, 216) !important;
+    transition: border-width .6s linear;
+}
+
 /* Cards pagina dettagli */
 #detailBody {
     height: 90vh;
 }
 
 #detCard {
-    -webkit-box-shadow: 5px 5px 15px 5px #290066;
+    box-shadow: 5px 5px 15px 5px #290066;
     overflow: hidden !important;
     border: 1px solid rgb(54, 54, 54);
     border-radius: 20px;
@@ -103,8 +108,22 @@ h1, h5 {
     object-fit: cover !important;
 }
 
+/* Backoffice */
+
 .fa-pencil {
     font-size: 10pt;
+}
+
+.animation-shacking {
+    animation: horizontal-shaking .35s .1s;
+}
+
+@-webkit-keyframes horizontal-shaking {
+    0% { transform: translateX(0) }
+    25% { transform: translateX(5px) }
+    50% { transform: translateX(-5px) }
+    75% { transform: translateX(5px) }
+    100% { transform: translateX(0) }
 }
 
 /* Carrello */
@@ -142,4 +161,10 @@ h1, h5 {
 @-webkit-keyframes fadeout {
     from {opacity: 1;}
     to {opacity: 0;}
+}
+
+/* Footer */
+
+footer {
+    box-shadow: 0px 4px 5px rgb(19, 19, 19), 0px -4px 7px -2px rgb(19, 19, 19);
 }

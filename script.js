@@ -10,16 +10,20 @@ const totCarrello = [];// Array di stoccaggio per calcolare il totale del carrel
 
 // Chiamata AJAX per recuperare gli elementi
 async function getPost() {
-    myContainer.innerHTML = "";
-    const res = await fetch(apiCall, {
-        method: "GET",
-        headers: {Authorization: apiToken}
-    });
-    const json = await res.json();
-    console.table(json);
-    json.forEach(element => {
-        showPost(element);
-    });
+    try {
+        myContainer.innerHTML = "";
+        const res = await fetch(apiCall, {
+            method: "GET",
+            headers: {Authorization: apiToken}
+        });
+        const json = await res.json();
+        console.table(json);
+        json.forEach(element => {
+            showPost(element);
+        });
+    } catch (error) {
+        console.log(error);
+    }
 }
 
 // Funzione che permette di visualizzare le varie keys
@@ -31,12 +35,14 @@ function showPost(element) {
       <h5 class="card-title">${element.name}</h5>
       <p class="card-text short-descr">${element.description}</p>
       <div class="d-flex justify-content-around">
-      <a href="#" onclick="addToCart('${element.name}', '${element.price}')" class="btn btn-primary"><i class="fa-solid fa-cart-plus"></i> €${element.price}</a>
+      <a href="#" onclick="addToCart('${element.name}', '${element.price}', event)" class="btn btn-primary"><i class="fa-solid fa-cart-plus"></i> €${element.price}</a>
       <a href="#" class="btn btn-secondary">Details</a>
       </div>
     </div>`;
 
     myCard.classList.add("card", "post-cards", "col-xxl-3", "col-xl-3", "col-lg-3", "col-md-4", "col-sm-6", "col-xs-12", "col-12", "my-3");
+
+    myCard.setAttribute("data-name", `${element.name}`)
 
     myCard.id = `${element._id}`;
 
@@ -50,7 +56,9 @@ function showPost(element) {
 }
 
 // Funzione che permette di aggiungere keys al carrello tramite il button
-function addToCart(name, price) {
+function addToCart(name, price, event) {
+
+    event.preventDefault();// Impedisce lo scroll verso l'alto alla pressione del button
 
     let prezzo = parseFloat(price);
 
@@ -60,6 +68,18 @@ function addToCart(name, price) {
 
     ulCart.append(cartLi);
     totCarrello.push(prezzo);
+
+    const card = document.querySelector(`[data-name="${name}"]`);
+
+    if (card) {
+        card.classList.add("highlight-card");
+    }
+
+    setTimeout(() => {
+        if (card) {
+          card.classList.remove("highlight-card");
+        }
+    }, 300);     
 
     calcolaPrezzoTotale();
 }

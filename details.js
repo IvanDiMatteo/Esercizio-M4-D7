@@ -12,19 +12,23 @@ const homeBtn = document.getElementById("homeBtn");
 
 // Chiamata AJAX per recuperare gli elementi ed inserirli nella card dettagli
 async function showDetails() {
-  const res = await fetch(apiCall, {
+  try {
+    const res = await fetch(apiCall, {
       method: "GET",
       headers: {Authorization: apiToken}
     });
-  const json = await res.json();
-  console.table(json);
+    const json = await res.json();
+    console.table(json);
 
-  title[0].innerText = "About " + json.name;  
-  title[1].innerText = json.name;
-  descr.innerText = json.description;
-  prezzo.innerText = "€" + json.price.toFixed(2);
-  img.setAttribute("src", `${json.imageUrl}`);
-  img.setAttribute("alt", `${json.name} image`);
+    title[0].innerText = "About " + json.name;  
+    title[1].innerText = json.name;
+    descr.innerText = json.description;
+    prezzo.innerText = "€" + json.price.toFixed(2);
+    img.setAttribute("src", `${json.imageUrl}`);
+    img.setAttribute("alt", `${json.name} image`);
+  } catch (error) {
+    console.log(error);
+  }
 }
 
 // Pulsante home che riporta alla pagina principale
